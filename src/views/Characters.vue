@@ -24,7 +24,7 @@ export default ({
     },
     methods: {
 
-        async fetchOne() {
+        async fetchAllCh() {
 
         // https://fedeperin-harry-potter-api-en.herokuapp.com/characters/1
 
@@ -35,7 +35,7 @@ export default ({
         } // end of fetchOne
     }, // end of methods
     mounted: function() {
-        this.fetchOne();
+        this.fetchAllCh();
     }
 });
 
