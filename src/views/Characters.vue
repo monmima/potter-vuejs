@@ -2,11 +2,12 @@
   <div class="about">
     <h1>This is the characters (plural) page</h1>
 
-    <div>
-
+    <div class="grid">
         <figure v-for="ch in response" v-bind:key="ch.character">
+            <div>
+                <img v-bind:src="ch.image" v-bind:alt="`Portrait of ${ ch.character }`">
+            </div>
             <a :href="`/character/${ch.id}`">{{ ch.character }}</a>
-            
         </figure>
     </div>
 
@@ -40,3 +41,10 @@ export default ({
 });
 
 </script>
+
+<style lang="scss">
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+</style>
