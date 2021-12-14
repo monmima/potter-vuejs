@@ -1,20 +1,21 @@
 <template>
-  <div class="about">
-    <h1>This is the characters (plural) page</h1>
+    <div class="about">
+        <h1>This is the staff members (plural) page</h1>
+    </div>
 
     <div class="grid">
+        
         <figure v-for="ch in response" v-bind:key="ch.character">
-            <div>
-                <a :href="`/character/${ch.id}`">
-                    <img v-bind:src="ch.image" v-bind:alt="`Portrait of ${ ch.character }`">
-                </a>
-            </div>
+            <div v-if="ch.image.length > 0">
+                <div>
+                    <img v-bind:src="ch.image" v-bind:alt="`Portrait of ${ ch.name }`">
+                </div>
 
-            <a :href="`/character/${ch.id}`">{{ ch.character }}</a>
+                {{ ch.name }}
+            </div>
         </figure>
     </div>
 
-  </div>
 </template>
 
 <script>
@@ -32,7 +33,7 @@ export default ({
 
         // https://fedeperin-harry-potter-api-en.herokuapp.com/characters/1
 
-            this.response = await fetch(`https://fedeperin-harry-potter-api-en.herokuapp.com/characters/`).then(response => response.json());
+            this.response = await fetch(`https://hp-api.herokuapp.com/api/characters/staff`).then(response => response.json());
 
             await console.log(this.response);
 
@@ -46,17 +47,18 @@ export default ({
 </script>
 
 <style lang="scss" scoped>
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
     figure {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
 
-        height: 300px;
+    img {
+        max-height: 250px;
+    }
 
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 </style>
