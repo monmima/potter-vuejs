@@ -6,9 +6,9 @@
 
     <p><strong>Name:</strong> {{ this.response.character }}</p>
 
-    <p><strong>House:</strong> {{ this.response.hogwartsHouse }}</p>
+    <p><strong>House:</strong> {{ this.response.hogwartsHouse === "ninguna" ? "None" : this.response.hogwartsHouse }}</p>
 
-    <p><strong>Interpreted by:</strong> {{ this.response.interpretedBy }}</p>
+    <p><strong>Interpreted by:</strong> {{ this.response.interpretedBy === "ninguno" ? "Nobody" : this.response.interpretedBy }}</p>
 
   </div>
 </template>
