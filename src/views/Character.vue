@@ -2,9 +2,13 @@
   <div class="about">
     <h1>This is a character page</h1>
 
-    <p>{{ this.response.character }}</p>
-
     <img :src="response.image" :alt="`Portrait of ${response.character}`">
+
+    <p><strong>Name:</strong> {{ this.response.character }}</p>
+
+    <p><strong>House:</strong> {{ this.response.hogwartsHouse }}</p>
+
+    <p><strong>Interpreted by:</strong> {{ this.response.interpretedBy }}</p>
 
   </div>
 </template>

@@ -5,8 +5,11 @@
     <div class="grid">
         <figure v-for="ch in response" v-bind:key="ch.character">
             <div>
-                <img v-bind:src="ch.image" v-bind:alt="`Portrait of ${ ch.character }`">
+                <a :href="`/character/${ch.id}`">
+                    <img v-bind:src="ch.image" v-bind:alt="`Portrait of ${ ch.character }`">
+                </a>
             </div>
+
             <a :href="`/character/${ch.id}`">{{ ch.character }}</a>
         </figure>
     </div>
@@ -46,5 +49,14 @@ export default ({
     .grid {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        height: 300px;
+
     }
 </style>
